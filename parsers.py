@@ -99,6 +99,9 @@ class SuperJobParser(Parsers):
             print(f"По данному ключевому слову на superjob найдено {i} вакансий")
         return list_vacancies
 
+    def __repr__(self):
+        return f"{self.__class__.__name__},{self.count_vacancy},{self.keywords}"
+
 
 class HHParser(Parsers):
     """
@@ -190,6 +193,9 @@ class HHParser(Parsers):
                 list_vacancies.append(vacancy_dict)
             return list_vacancies
 
+    def __repr__(self):
+        return f"{self.__class__.__name__},{self.count_vacancy},{self.keyword}"
+
 
 class Saver(Savers):
     """
@@ -237,4 +243,3 @@ class Loader(Loaders):
         with open(self.file, 'r', encoding="utf-8") as f:
             data_vacancies = json.load(f)
         return data_vacancies
-
